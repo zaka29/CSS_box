@@ -1,0 +1,178 @@
+/* The wrapper */
+.thumb-box {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 10em;
+    height: 10em;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    margin: 0 1em;
+    }
+
+/* The blocks that would be hovered */
+.box-trigger {
+    position: absolute;
+    z-index: 1;
+
+    width: 71%;
+    height: 71%;
+
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    }
+
+/* Positioning for hoverers */
+.box-trigger:nth-child(1) {
+    top: 0;
+    right: 0;
+      -webkit-transform-origin: 100% 0;
+       -moz-transform-origin: 100% 0;
+         -o-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+    }
+.box-trigger:nth-child(2) {
+    bottom: 0;
+    right: 0;
+   
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+    }
+.box-trigger:nth-child(3) {
+    bottom: 0;
+    left: 0;
+   
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+    }
+.box-trigger:nth-child(4) {
+    top: 0;
+    left: 0;
+   
+    -webkit-transform-origin: 0 0;
+       -moz-transform-origin: 0 0;
+         -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+    }
+
+/* Enlarge the hoverer to cover the whole area */
+.box-trigger:hover {
+    z-index: 9;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-transform: none;
+       -moz-transform: none;
+         -o-transform: none;
+            transform: none;
+    }
+
+.thumb-content-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    text-align: center;
+    line-height: 10em;
+
+    background: url("http://farm9.staticflickr.com/8357/8314534830_bb486001f6_m.jpg") no-repeat 0 0;
+    color: #FFF;
+        
+    /* Restore the antialiasing lost from translateZ */
+    -webkit-font-smoothing: subpixel-antialiased;
+
+    -webkit-transition: all .2s ease;
+       -moz-transition: all .2s ease;
+         -o-transition: all .2s ease;
+            transition: all .2s ease;
+
+    /*-webkit-box-shadow: 0 -10em 0 0 red, 10em 0 0 0 blue, 0 10em 0 0 lime, -10em 0 0 0 orange;
+       -moz-box-shadow: 0 -10em 0 0 red, 10em 0 0 0 blue, 0 10em 0 0 lime, -10em 0 0 0 orange;
+            box-shadow: 0 -10em 0 0 red, 10em 0 0 0 blue, 0 10em 0 0 lime, -10em 0 0 0 orange;*/
+    }
+.thumb-content1, .thumb-content2, .thumb-content3, .thumb-content4 {
+    width: 10em;
+    height: 10em;
+    position: absolute;
+} 
+.thumb-content1 div, .thumb-content2 div, .thumb-content3 div, .thumb-content4 div {
+    background: #333;
+    width:10.3em;
+    height:3em;
+    padding:6px;
+    position: absolute;
+    top: 65%;
+    line-height: 18px;
+    opacity:0.9;
+    font-size: 0.9em;
+} 
+
+.thumb-content1 {
+    background: url("http://farm1.staticflickr.com/185/375829472_cbc33c8213_m.jpg") no-repeat 0 -20px;
+    top: 100%;
+    left:0;
+}
+
+.thumb-content2 {
+    background: url("http://farm1.staticflickr.com/159/375828799_0bec537c38_m.jpg") no-repeat 0 -50px;
+    top: 0;
+    left: 100%;
+}
+.thumb-content3 {
+    background: url("http://farm1.staticflickr.com/148/375830007_6dcfccf8e2_m.jpg") no-repeat 0 -50px;
+    top: 0;
+    right: 100%;
+}
+.thumb-content4 {
+    background: url("http://farm1.staticflickr.com/183/375827066_8cb6974c95_m.jpg") no-repeat 0 -80px;
+    bottom: 100%;
+    right: 0;
+}
+
+.thumb {
+    text-align: left;
+}
+
+/* Move the content block while hovering different blocks */
+.box-trigger:nth-child(1):hover ~ .thumb-content-box {
+    -webkit-transform: translate(0, 100%);
+       -moz-transform: translate(0, 100%);
+         -o-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+    }
+.box-trigger:nth-child(2):hover ~ .thumb-content-box {
+    -webkit-transform: translate(-100%, 0);
+       -moz-transform: translate(-100%, 0);
+         -o-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+    }
+.box-trigger:nth-child(3):hover ~ .thumb-content-box {
+    -webkit-transform: translate(0, -100%);
+       -moz-transform: translate(0, -100%);
+         -o-transform: translate(0, -100%);
+            transform: translate(0, -100%);
+    }
+.box-trigger:nth-child(4):hover ~ .thumb-content-box {
+    -webkit-transform: translate(100%, 0);
+       -moz-transform: translate(100%, 0);
+         -o-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+    }
+
+/* Just for aestetics */
+BODY {
+    padding: 2em;
+    font: 16px/1.5 "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+}
+p, span {font-size: 24px;}
